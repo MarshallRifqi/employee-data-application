@@ -1,4 +1,5 @@
-// import './assets/central.css'
+import './assets/sb-admin-2.css'
+import './assets/sb-admin-2.min.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
