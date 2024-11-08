@@ -19,7 +19,7 @@
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Tanggal dan Waktu</th>
+                  <th scope="col">Nama karyawan</th>
                   <th scope="col">Id Pengiriman</th>
                   <th scope="col">Nama Ban</th>
                   <th scope="col">Customer</th>
