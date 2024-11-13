@@ -3,14 +3,16 @@
     <!-- Content For Sidebar -->
     <div class="h-100">
       <div class="sidebar-logo mb-5">
-        <img src="../assets/nusantara_white.png" class="logo-nusantara" alt="">
-        <br>
-        <a href="#">Nusantara</a>
+        <img
+          src="../assets/Logo-PT-Dok-_-Perkapalan-Kodja-Bahari_ft_237-Design-removebg-preview.png"
+          class="logo-nusantara"
+          alt=""
+        />
+        <br />
+        <a href="#">PT DKB</a>
       </div>
       <ul class="sidebar-nav nav-tabs">
-        <li class="sidebar-header mb-4">
-          Hello, Admin!
-        </li>
+        <li class="sidebar-header mb-4">Hello, Admin!</li>
         <li class="sidebar-item">
           <RouterLink to="/dashboard" class="sidebar-link icon-link" exact>
             <i class="bi bi-house"></i>
@@ -20,48 +22,71 @@
         </li>
         <li class="sidebar-item">
           <RouterLink to="/barangmaster" class="sidebar-link icon-link" exact>
-            <i class="bi bi-box-seam"></i>
+            <i class="bi bi-file-earmark-person"></i>
             <i class="fa-solid fa-list pe-2"></i>
-            Master Barang
+            Master Data Karyawan
           </RouterLink>
         </li>
         <li class="sidebar-item">
-          <RouterLink :to="{ name: 'BarangMasuk' }" class="sidebar-link icon-link">
-            <i class="bi bi-box-arrow-in-down"></i>
+          <RouterLink
+            :to="{ name: 'BarangMasuk' }"
+            class="sidebar-link icon-link"
+          >
+            <i class="bi bi-file-earmark-person"></i>
             <i class="fa-solid fa-list pe-2"></i>
-            Barang Masuk
+            Status Karyawan
           </RouterLink>
         </li>
         <li class="sidebar-item">
-          <RouterLink :to="{ name: 'customers' }" class="sidebar-link icon-link">
+          <RouterLink
+            :to="{ name: 'customers' }"
+            class="sidebar-link icon-link"
+          >
             <i class="bi bi-person-workspace"></i>
             <i class="fa-solid fa-list pe-2"></i>
-            Customer
+            Status Karyawan?
           </RouterLink>
         </li>
         <li class="sidebar-item">
-          <RouterLink :to="{ name: 'BarangKeluar' }" class="sidebar-link icon-link">
+          <RouterLink
+            :to="{ name: 'BarangKeluar' }"
+            class="sidebar-link icon-link"
+          >
             <i class="bi bi-box-arrow-up"></i>
             <i class="fa-solid fa-list pe-2"></i>
             Barang Keluar
           </RouterLink>
         </li>
         <li class="sidebar-item">
-          <a href="#submenu2" data-bs-toggle="collapse" class="sidebar-link icon-link">
+          <a
+            href="#submenu2"
+            data-bs-toggle="collapse"
+            class="sidebar-link icon-link"
+          >
             <i class="bi bi-truck"></i>
             <i class="fa-solid fa-list pe-2"></i>
             Pengiriman
           </a>
-          <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+          <ul
+            class="collapse nav flex-column ms-1"
+            id="submenu2"
+            data-bs-parent="#menu"
+          >
             <li class="sub-link">
-              <RouterLink :to="{ name: 'Pengiriman' }" class="sidebar-link icon-link">
+              <RouterLink
+                :to="{ name: 'Pengiriman' }"
+                class="sidebar-link icon-link"
+              >
                 <i class="bi bi-truck"></i>
                 <i class="fa-solid fa-list pe-2"></i>
                 Pengiriman
               </RouterLink>
             </li>
             <li class="sub-link">
-              <RouterLink :to="{ name: 'RiwayatPengiriman' }" class="sidebar-link icon-link">
+              <RouterLink
+                :to="{ name: 'RiwayatPengiriman' }"
+                class="sidebar-link icon-link"
+              >
                 <i class="bi bi-truck"></i>
                 <i class="fa-solid fa-list pe-2"></i>
                 Riwayat Pengiriman
@@ -81,9 +106,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { useRouter } from 'vue-router';
-import Cookies from 'js-cookie';
+import axios from "axios";
+import { useRouter } from "vue-router";
+import Cookies from "js-cookie";
 // import Swal from 'sweetalert2';
 
 export default {
@@ -94,29 +119,29 @@ export default {
   methods: {
     async handleLogout() {
       try {
-        const response = await axios.delete('/logout', {
-          withCredentials: true // Ensure cookies are sent
+        const response = await axios.delete("/logout", {
+          withCredentials: true, // Ensure cookies are sent
         });
         if (response.status === 200) {
           // localStorage.removeItem('token'); // Remove the token from local storage
-          this.router.push({ name: 'Login' });
-          Cookies.remove('token');
+          this.router.push({ name: "Login" });
+          Cookies.remove("token");
           Swal.fire({
             position: "top-end",
             icon: "success",
             title: response.data.msg,
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
           });
         }
       } catch (error) {
-        console.error('Logout failed:', error);
+        console.error("Logout failed:", error);
         Swal.fire({
           position: "top-end",
           icon: "error",
           title: error.response.data.msg,
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       }
     },
@@ -131,9 +156,9 @@ export default {
 } */
 
 a {
-    cursor: pointer;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
 }
 
 .logo-nusantara {
@@ -142,12 +167,11 @@ a {
   height: 150px;
 }
 
-
 #sidebar {
-    max-width: 264px;
-    min-width: 264px;
-    background: #cf1313;
-    transition: all 0.35s ease-in-out;
+  max-width: 264px;
+  min-width: 264px;
+  background: #4e73df;
+  transition: all 0.35s ease-in-out;
 }
 
 .sidebar-logo {
@@ -171,12 +195,12 @@ a {
 
 .sidebar-header {
   color: #e9ecef;
-  font-size: .75rem;
-  padding: 1.5rem 1.5rem .375rem;
+  font-size: 0.75rem;
+  padding: 1.5rem 1.5rem 0.375rem;
 }
 
 .sidebar-link {
-  padding: .625rem 1.625rem;
+  padding: 0.625rem 1.625rem;
   color: #e9ecef;
   position: relative;
   display: block;
@@ -185,7 +209,7 @@ a {
 
 .sidebar-link[data-bs-toggle="collapse"]::after {
   border: solid;
-  border-width: 0 .075rem .075rem 0;
+  border-width: 0 0.075rem 0.075rem 0;
   content: "";
   display: inline-block;
   padding: 2px;
@@ -193,12 +217,12 @@ a {
   right: 1.5rem;
   top: 1.4rem;
   transform: rotate(-135deg);
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
   transform: rotate(45deg);
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .router-link-exact-active {
@@ -206,14 +230,14 @@ a {
   background-color: #ffffff; /* Active link background color */
 }
 
-.sidebar-item{
+.sidebar-item {
   margin-bottom: 15px;
 }
 
-.sub-link{
+.sub-link {
   margin-left: 10px;
   /* padding: 10px; */
   /* margin-bottom: 15px; */
-  margin-top: 15px
+  margin-top: 15px;
 }
 </style>
