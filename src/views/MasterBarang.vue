@@ -4,19 +4,11 @@
     <div class="main">
       <div class="input-group mb-3">
         <h2>Master Barang</h2>
-        <!-- <input type="search" placeholder="Cari stok barang" aria-describedby="button-addon5" class="form-control rounded-pill">
-        <div class="input-group-append mx-3">
-          <button id="button-addon5" type="submit" class="btn btn-danger"><i class="bi bi-search"></i>Search</button>
-        </div> -->
-        <!-- <button type="button" class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Tambah Barang
-        </button> -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Master Barang</h1>
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                <h1 class="modal-title fs-5" id="addEmployeeLabel">Form Master Barang</h1>
               </div>
               <div class="modal-body">
                 <form @submit.prevent="handleSubmit">
@@ -47,10 +39,10 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="closeEditModal">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                   <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
                 </button>
-                <button type="button" class="btn btn-primary" @click="handleSubmit">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="handleSubmit">
                   <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
                 </button>
               </div>
@@ -62,7 +54,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12 p-0">
-            <button type="button" class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Tambah Barang</button>
+            <button type="button" class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" data-bs-whatever="@getbootstrap">Tambah Barang</button>
           </div>
         </div>
       </div>
@@ -73,7 +65,6 @@
           <h5 class="card-title">List Barang</h5>
         </div>
         <div class="card-body table-responsive">
-          <!-- <div class="alert alert-primary" role="alert"></div> -->
           <table class="table table-light table-bordered" id="example">
             <thead class="table-danger mt-5">
               <tr>
@@ -97,8 +88,7 @@
                 <td>{{ barang.stok}}</td>
                 <td>{{ barang.total_harga}}</td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-primary " data-bs-toggle="modal" data-bs-target="#editModal" @click="openEditModal(barang)"> <i class="bi bi-pencil-square"></i> <span>Edit</span> </button>
-                  <!-- <button class="btn btn-sm btn-danger mx-2" @click="deleteBarang(barang.id_barang)"> <i class="bi bi-trash"></i> <span>Delete</span></button> -->
+                  <button type="button" class="btn btn-sm btn-primary " data-bs-toggle="modal" data-bs-target="#editEmployeeModal" @click="openEditModal(barang)"> <i class="bi bi-pencil-square"></i> <span>Edit</span> </button>
                   <button class="btn btn-sm btn-danger mx-2" @click="confirmDelete(barang.id_barang)"><i class="bi bi-trash"></i> <span>Delete</span></button>
                 </td>
               </tr>
@@ -108,31 +98,11 @@
       </div>
     </div>
 
-    <!-- <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to delete this item?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger" @click="confirmDelete">Delete</button>
-          </div>
-        </div>
-      </div> -->
-
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editEmployeeLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="editModalLabel">Form Edit Master Barang</h1>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            <h1 class="modal-title fs-5" id="editEmployeeLabel">Form Edit Master Barang</h1>
           </div>
           <div class="modal-body">
             <form @submit.prevent="handleEditSubmit">
@@ -160,24 +130,24 @@
                   <input type="date" class="form-control" id="tanggal" v-model="form.tanggal">
                 </div> -->
               </div>
-              <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
-              </button>
-              <button type="submit" class="btn btn-primary">
-                <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
-              </button>
-            </div>
+              <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                  <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
+                </button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
+                </button>
+              </div> -->
             </form>
           </div>
-          <!-- <div class="modal-footer">
+          <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
               <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
             </button>
-            <button type="submit" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="handleEditSubmit">
               <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
             </button>
-          </div> -->
+          </div>
           
         </div>
       </div>
@@ -247,16 +217,6 @@ const confirmDelete = (id_barang) => {
   });
 };
 
-const openEditModal = (item) => {
-  form.value.id_barang = item.id_barang;
-  form.value.nama_barang = item.nama_barang;
-  form.value.kategori = item.kategori;
-  form.value.harga = item.harga;
-  form.value.stok = item.stok;
-  // form.value.tanggal = item.tanggal;
-  const editModal = new bootstrap.Modal(document.getElementById('editModal'));
-  editModal.show();
-};
 
 const handleSubmit = async () => {
   try {
@@ -269,14 +229,13 @@ const handleSubmit = async () => {
     });
     console.log('Response:', response.data);
     fetchData(); 
-    // exampleModal.hide();
     form.value.nama_barang = '';
     form.value.kategori = '';
     form.value.harga = 0;
     form.value.stok = 0;
     // form.value.tanggal = '';
-    const exampleModal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-    exampleModal.hide();
+    const addModal = bootstrap.Modal.getInstance(document.getElementById('addEmployeeModal'));
+    addModal.hide();
     Swal.fire({
       position: "center",
       icon: "success",
@@ -294,6 +253,17 @@ const handleSubmit = async () => {
       timer: 1500
     });
   }
+};
+
+const openEditModal = (item) => {
+  form.value.id_barang = item.id_barang;
+  form.value.nama_barang = item.nama_barang;
+  form.value.kategori = item.kategori;
+  form.value.harga = item.harga;
+  form.value.stok = item.stok;
+  // form.value.tanggal = item.tanggal;
+  // const editModal = new bootstrap.Modal(document.getElementById('editEmployeeModal'));
+  // editModal.show();
 };
 
 const handleEditSubmit = async () => {
@@ -314,7 +284,7 @@ const handleEditSubmit = async () => {
     form.value.harga = 0;
     form.value.stok = '';
     // form.value.tanggal = '';
-    const editModal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+    const editModal = bootstrap.Modal.getInstance(document.getElementById('editEmployeeModal'));
     editModal.hide();
     Swal.fire({
       position: "middle",
