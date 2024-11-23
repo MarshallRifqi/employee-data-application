@@ -31,10 +31,6 @@
                       <label label for="stok" class="col-form-label">Stok</label>
                       <input type="number" class="form-control" id="stok" v-model="form.stok" min="0" max="1000">
                     </div>
-                    <!-- <div class="mb-3">
-                      <label for="tanggal" class="col-form-label">Tanggal</label>
-                      <input type="date" class="form-control" id="tanggal" v-model="form.tanggal">
-                    </div> -->
                   </div>
                 </form>
               </div>
