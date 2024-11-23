@@ -43,21 +43,178 @@
                       <label for="tanggal" class="col-form-label">Tanggal</label>
                       <input type="date" class="form-control" id="tanggal" v-model="form.tanggal">
                     </div> -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
+                      </button>
+                      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
+                      </button>
+                    </div>
                   </div>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="closeEditModal">
-                  <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
-                </button>
-                <button type="button" class="btn btn-primary" @click="handleAddSubmit">
-                  <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
-                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- modal detail -->
+      <div class="modal fade" id="detailKaryawan" tabindex="-1" aria-labelledby="detailKaryawanModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="detailKaryawanModalLabel">Detail Data Karyawan</h1>
+      </div>
+      <div class="modal-body p-5">
+        <!-- <table id="" class="table-bordered p-5" >
+          <caption>First Way</caption>
+            <tr>
+              <th class="row fw-semibold mb-3"> Nama Lengkap :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> NIK :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Email :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> No Handphone :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Jabatan :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Job Functio :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Level Jabatan :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Tanggal Bergabung :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Tanggal Menjabat :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> NIP :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> NIP :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Status Kepegawaian :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> TTL :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Unit Kerja :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Status :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Golongan :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> TMT Job Title :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> No/Th SK Terakhir :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Pendidikan :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> No BPJS :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> No Jamsostek :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Pensiun :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Jumlah Anggota Keluarga :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Agama :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Alamat :</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th class="row fw-semibold mb-3"> Serikat Pekerja :</th>
+              <td>data</td>
+            </tr>
+        </table> -->
+        <table class="table table-bordered">
+      <!-- <thead>
+        <tr>
+          <th>Category</th>
+          <th>Item 1</th>
+          <th>Item 2</th>
+          <th>Item 3</th>
+        </tr>
+      </thead> -->
+      <tbody>
+        <tr>
+          <th scope="row">Row 1</th>
+          <td>Data 1.1</td>
+          <!-- <td>Data 1.2</td>
+          <td>Data 1.3</td> -->
+        </tr>
+        <tr>
+          <th scope="row">Row 2</th>
+          <td>Data 2.1</td>
+          <td>Data 2.2</td>
+          <td>Data 2.3</td>
+        </tr>
+        <tr>
+          <th scope="row">Row 3</th>
+          <td>Data 3.1</td>
+          <td>Data 3.2</td>
+          <td>Data 3.3</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <i class="bi bi-x-lg"></i><span> Tututp</span></button>
+        <button type="button" class="btn btn-primary">
+          <i class="bi bi-check2"></i><span class="mx-2"> Simpan</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- end of modal detail -->
 
       <div class="container-fluid">
         <div class="row">
@@ -101,6 +258,7 @@
                   <button class="btn btn-sm btn-primary mx-2" @click="openEditModal(pelanggan)"><i class="bi bi-pencil-square"></i> <span>Edit</span></button>
                   <!-- <button class="btn btn-sm btn-danger mx-2" @click="deleteBarang(barangMsk.id_barang_masuk)"><i class="bi bi-trash"></i> <span>Delete</span></button> -->
                   <button class="btn btn-sm btn-danger mx-2" @click="confirmDelete(pelanggan.id_pelanggan)"><i class="bi bi-trash"></i> <span>Delete</span></button>
+                  <button class="btn btn-sm btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#detailKaryawan"><i class="bi bi-person-vcard"></i><span class="ms-1">Detail</span></button>
                 </td>
               </tr>
             </tbody>
