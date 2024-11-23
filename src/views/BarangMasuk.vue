@@ -4,16 +4,11 @@
     <div class="main">
       <div class="input-group mb-3">
         <h2>Barang Masuk</h2>
-        <!-- <input type="search" placeholder="Cari stok barang" aria-describedby="button-addon5" class="form-control rounded-pill">
-        <div class="input-group-append mx-3">
-          <button id="button-addon5" type="submit" class="btn btn-danger"><i class="bi bi-search"></i>Search</button>
-        </div> -->
-        <!-- <button type="button" class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Tambah Barang</button> -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Barang Masuk</h1>
+                <h1 class="modal-title fs-5" id="addEmployeeLabel">Form Barang Masuk</h1>
               </div>
               <div class="modal-body">
                 <form @submit.prevent="handleAddSubmit">
@@ -62,7 +57,7 @@
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                       <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
                       <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
                     </button>
                   </div>
@@ -75,7 +70,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <button type="button" class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Tambah Barang</button>
+            <button type="button" class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" data-bs-whatever="@getbootstrap">Tambah Barang</button>
           </div>
         </div>
       </div>
@@ -127,7 +122,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editLabel">Form Edit Barang Masuk</h1>
+                <h1 class="modal-title fs-5" id="editModalLabel">Form Edit Barang Masuk</h1>
               </div>
               <div class="modal-body">
                 <form @submit.prevent="handleEditSubmit">
@@ -153,7 +148,7 @@
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                       <i class="bi bi-x-lg"></i><span class="mx-2">Batal</span>
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
                       <i class="bi bi-check2"></i><span class="mx-2">Simpan</span>
                     </button>
                   </div>
@@ -274,8 +269,7 @@ const handleAddSubmit = async () => {
     newBarang.value.id_barang = '';
     newBarang.value.tanggal_masuk = '';
     newBarang.value.kuantitas = 0;
-    const exampleModal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-    exampleModal.hide();
+    const addEmployeeModal = bootstrap.Modal.getInstance(document.getElementById('addEmployeeModal'));
     Swal.fire({
       position: "middle",
       icon: "success",
@@ -319,7 +313,6 @@ const handleEditSubmit = async () => {
     editBarang.value.tanggal_masuk = '';
     editBarang.value.kuantitas = 0;
     const editModal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
-    editModal.hide();
     Swal.fire({
       position: "middle",
       icon: "success",
